@@ -1,0 +1,26 @@
+{
+	"name": "cycle-examples",
+		"version": "1.0.0",
+		"description": "",
+		"main": "index.js",
+		"author": "",
+		"license": "ISC",
+		"dependencies": {
+			"@cycle/core": "6.0.0",
+			"@cycle/dom": "9.0.1",
+			"rx": "4.0.7"
+		},
+		"devDependencies": {
+			"browserify": "13.0.0",
+			"babel": "6.3.x",
+			"babelify": "7.2.x",
+			"mkdirp": "0.5.x"
+		},
+		"scripts": {
+			"test": "echo \"Error: no test specified\" && exit 1",
+			"prebrowserify": "mkdirp dist",
+			"browserify": "browserify src/main.js --outfile dist/main.js -t [ babelify --presets [ es2015 ] ]",
+			"start": "npm install && npm run browserify && echo 'OPEN index.html IN YOUR BROWSER'"
+		}
+
+}
