@@ -2,6 +2,7 @@ import {Observable, Subject} from 'rx';
 import {button, div} from '@cycle/dom';
 import isolate from '@cycle/isolate'
 import Item from './Item';
+import React from 'react';
 
 function intent(DOM, itemActions) {
   const addItem$ = Observable.merge(
@@ -65,16 +66,19 @@ function model(actions, itemFn) {
 
 function view(itemDOMs$) {
   function renderTopButtons() {
-    return div('.topButtons', [
-      button('.add-one-btn', 'Add New Item'),
-      button('.add-many-btn', 'Add Many Items')
-    ]);
+    return <div class=".topButtons"> 
+      <button class=".add-one-btn">'Add New Item'</button>
+      <button class=".add-many-btn">'Add Many Items'</button>
+    </div>
   }
 
   return itemDOMs$.map(itemDOMs =>
-    div('.list',
-      [renderTopButtons()].concat(itemDOMs)
-    )
+    <div class='.list'>
+	<div class=".topButtons"> 
+      <button class=".add-one-btn">'Add New Item'</button>
+      <button class=".add-many-btn">'Add Many Items'</button>
+    </div>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import {run} from '@cycle/core';
-import {makeDOMDriver} from '@cycle/dom';
+import {makeDOMDriver, hJSX} from '@cycle/dom';
 import List from './List';
+import React from 'react';
 
 function main(sources) {
   return List(sources);
